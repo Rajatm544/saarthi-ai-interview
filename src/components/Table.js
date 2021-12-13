@@ -5,31 +5,39 @@ const Table = () => {
 	const [qualification, setQualification] = useState('B.E');
 	const [place, setPlace] = useState('Bangalore');
 
-	const handleClick = (e) => {
+	const handleErase = (e) => {
 		setName('');
 		setQualification('');
 		setPlace('');
+	};
+	const handleFill = (e) => {
+		setName('Rajat');
+		setQualification('B.E');
+		setPlace('Bangalore');
 	};
 
 	return (
 		<div className='details'>
 			<table className='details-table'>
 				<thead>
-					<td>Name</td>
-					<td>Qualification</td>
-					<td>Place</td>
+					<tr>
+						<th>Name</th>
+						<th>Qualification</th>
+						<th>Place</th>
+					</tr>
 				</thead>
 				<tbody>
-					{name && qualification && place && (
-						<tr>
-							<td>{name}</td>
-							<td>{qualification}</td>
-							<td>{place}</td>
-						</tr>
-					)}
+					<tr>
+						<td>{name}</td>
+						<td>{qualification}</td>
+						<td>{place}</td>
+					</tr>
 				</tbody>
 			</table>
-			<button onClick={handleClick}>Erase Content</button>
+			<div className='buttons'>
+				<button onClick={handleErase}>Erase Content</button>
+				<button onClick={handleFill}>Fill Content</button>
+			</div>
 		</div>
 	);
 };
